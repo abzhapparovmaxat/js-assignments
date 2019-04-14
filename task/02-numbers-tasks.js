@@ -22,7 +22,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-    throw new Error('Not implemented');
+  return width * height;
 }
 
 
@@ -38,7 +38,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    throw new Error('Not implemented');
+  return 2 * Math.PI * radius;
 }
 
 /**
@@ -54,7 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    throw new Error('Not implemented');
+  throw new Error('Not implemented');
 }
 
 /**
@@ -127,7 +127,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-    throw new Error('Not implemented');
+  return (value+'').split('').pop();
 }
 
 
@@ -143,7 +143,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-    throw new Error('Not implemented');
+  return value*1;
 }
 
 /**
@@ -181,7 +181,12 @@ function getParallelipidedDiagonal(a,b,c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-    throw new Error('Not implemented');
+  if(!pow) return num;
+  const arr = (num+'').split('').map((e) => parseInt(e));
+  const arrL = arr.length;
+  if(arr[arrL-pow] > 4) arr[arrL-1-pow] += 1;
+  for(let i = arrL-pow; i < arrL; i++) arr[i] = 0;
+  return arr.join('')*1;
 }
 
 /**
@@ -202,7 +207,14 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-    throw new Error('Not implemented');
+  if (n <= 3) return true;
+  else if(n%2 == 0 || n%3 == 0) return false;
+  let i = 5;
+  while (i*i <= n) {
+    if(n%i == 0 || n%(i + 2) == 0) return false;
+    i += 1;
+  }
+  return true
 }
 
 /**
@@ -221,7 +233,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    throw new Error('Not implemented');
+  return (value*0 == 0) ? value*1 : def;
 }
 
 module.exports = {
